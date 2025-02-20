@@ -10,6 +10,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Certifications from './components/Certifications'
 import LoadingScreen from './components/LoadingScreen'
+import Footer from './components/Footer'
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
@@ -43,6 +44,7 @@ function App() {
                             <Skills />
                             <Projects />
                             <Certifications />
+                            <Footer />
                         </motion.div>
 
                         {/* WhatsApp Button */}

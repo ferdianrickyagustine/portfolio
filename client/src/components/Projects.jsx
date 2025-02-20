@@ -60,7 +60,7 @@ const Projects = () => {
             <div className="container mx-auto px-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 md:mb-12">Projects</h2>
                 <motion.div 
-                    className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+                    className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -74,19 +74,20 @@ const Projects = () => {
                             whileHover={{ scale: 1.02 }}
                         >
                             <div className="aspect-[3/2] relative">
+                            
                                 <img 
                                     src={project.image} 
                                     alt={project.name}
                                     className="w-full h-full object-cover rounded-t-xl"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent" />
-                                <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="absolute inset-0 flex items-center justify-center md:flex">
                                     <button className="px-4 md:px-6 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all duration-300 text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                                         View Details
                                     </button>
                                 </div>
-                                <div className="absolute bottom-0 inset-x-0 p-4 text-center">
-                                    <h3 className="text-lg md:text-xl font-semibold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                <div className="absolute bottom-0 inset-x-0 p-2 md:p-4 text-center">
+                                    <h3 className="text-sm md:text-xl font-semibold text-white md:mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                                         {project.name}
                                     </h3>
                                 </div>
