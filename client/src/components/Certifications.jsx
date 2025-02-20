@@ -57,13 +57,17 @@ const Certifications = () => {
         <section id="certifications" className="py-20 bg-gray-800/50">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center text-white mb-12">Certifications</h2>
-                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                <motion.div 
+                    className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2 }}
+                >
                     {certifications.map((cert, index) => (
-                        <motion.div 
-                            key={index} 
+                        <div 
+                            key={index}
                             className="group bg-gray-900/50 p-6 rounded-lg shadow-lg border border-gray-700/50 hover:border-blue-500/50 transition-colors"
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ type: "spring", stiffness: 300 }}
                         >
                             <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
                                 {cert.name}
@@ -81,9 +85,9 @@ const Certifications = () => {
                                 <FiExternalLink className="text-lg" />
                             </motion.a>
                             <p className="text-gray-500 text-sm mt-1">{cert.validity}</p>
-                        </motion.div>
+                        </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )

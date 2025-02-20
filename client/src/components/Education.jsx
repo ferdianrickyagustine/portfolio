@@ -5,14 +5,16 @@ const Education = () => {
             location: "Jakarta, Indonesia",
             degree: "Full Stack JavaScript Immersive Program",
             period: "November 2024 – February 2025",
-            details: "(Transcript)"
+            details: "Score: 86/100",
+            image: "https://ik.imagekit.io/matguchi18/hacktiv8.png"
         },
         {
             school: "Universitas Bina Nusantara",
             location: "Tangerang, Indonesia",
             degree: "Bachelor of Information System",
             period: "2018 – 2022",
-            details: "GPA 3.45/4.00"
+            details: "GPA 3.45/4.00",
+            image: "https://ik.imagekit.io/matguchi18/binus.png"
         }
     ]
 
@@ -23,15 +25,24 @@ const Education = () => {
                 <div className="max-w-4xl mx-auto space-y-8">
                     {education.map((edu, index) => (
                         <div key={index} className="bg-gray-900/50 p-6 rounded-lg border border-gray-700/50 shadow-lg">
-                            <div className="flex justify-between items-start mb-2">
-                                <div>
-                                    <h3 className="text-xl font-semibold text-white">{edu.school}</h3>
-                                    <p className="text-gray-400">{edu.location}</p>
+                            <div className="flex gap-6">
+                                <img 
+                                    src={edu.image} 
+                                    alt={edu.school}
+                                    className="h-[120px] w-[120px] object-contain rounded-lg bg-white/10 p-4"
+                                />
+                                <div className="flex-grow">
+                                    <div className="flex justify-between items-start mb-2">
+                                        <div>
+                                            <h3 className="text-xl font-semibold text-white">{edu.school}</h3>
+                                            <p className="text-gray-400">{edu.location}</p>
+                                        </div>
+                                        <span className="text-sm text-gray-500">{edu.period}</span>
+                                    </div>
+                                    <p className="text-gray-300">{edu.degree}</p>
+                                    <p className="text-gray-400 text-sm mt-1">{edu.details}</p>
                                 </div>
-                                <span className="text-sm text-gray-500">{edu.period}</span>
                             </div>
-                            <p className="text-gray-300">{edu.degree}</p>
-                            <p className="text-gray-400 text-sm mt-1">{edu.details}</p>
                         </div>
                     ))}
                 </div>

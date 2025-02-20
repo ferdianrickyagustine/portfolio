@@ -48,23 +48,20 @@ const Projects = () => {
         <section id="projects" className="py-20 bg-gray-900">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center text-white mb-12">Projects</h2>
-                <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+                <motion.div 
+                    className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2 }}
+                >
                     {projects.map((project, index) => (
-                        <motion.div 
+                        <div 
                             key={index}
-                            initial={{ opacity: 0, scale: 0 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ 
-                                duration: 0.5,
-                                delay: (index % 2) * 0.2 + Math.floor(index / 2) * 0.3
-                            }}
                             className="group bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 border border-gray-700/50 transition-all duration-300 relative overflow-hidden"
                         >
-                            {/* Gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                             
-                            {/* Content */}
                             <div className="relative z-10">
                                 <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
                                     {project.name}
@@ -117,9 +114,9 @@ const Projects = () => {
                                     </div>
                                 )}
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )

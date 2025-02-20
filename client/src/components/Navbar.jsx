@@ -3,7 +3,7 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-800/50">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
-                    <a href="#" className="text-xl font-bold text-white">FRA</a>
+                    <a href="#" className="text-xl font-bold text-white">Portfolio</a>
                     <div className="hidden md:flex space-x-8">
                         <a href="#about" className="text-gray-400 hover:text-blue-400 transition-colors">About</a>
                         <a href="#experience" className="text-gray-400 hover:text-blue-400 transition-colors">Experience</a>

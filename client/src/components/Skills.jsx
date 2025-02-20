@@ -1,16 +1,62 @@
+import { motion } from 'framer-motion'
+import { 
+    SiJavascript, 
+    SiTypescript, 
+    SiReact, 
+    SiRedux, 
+    SiHtml5,
+    SiCss3,
+    SiApollographql,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiExpress,
+    SiSequelize,
+    SiPostgresql,
+    SiGraphql,
+    SiMongodb,
+    SiRedis,
+    SiPostman
+} from 'react-icons/si'
+import { FaCode } from 'react-icons/fa'
+
 const Skills = () => {
     const skillCategories = [
         {
             category: "Language",
-            skills: ["JavaScript", "TypeScript"]
+            icon: <FaCode className="text-2xl text-blue-400" />,
+            skills: [
+                { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
+                { name: "TypeScript", icon: <SiTypescript className="text-blue-400" /> }
+            ]
         },
         {
             category: "Front End",
-            skills: ["React JS", "Redux", "React Native", "HTML & CSS", "Apollo Client", "NextJs"]
+            icon: <SiReact className="text-2xl text-blue-400 animate-spin-slow" />,
+            skills: [
+                { name: "React JS", icon: <SiReact className="text-blue-400" /> },
+                { name: "Redux", icon: <SiRedux className="text-purple-400" /> },
+                { name: "React Native", icon: <SiReact className="text-blue-400" /> },
+                { name: "HTML", icon: <SiHtml5 className="text-orange-400" /> },
+                { name: "CSS", icon: <SiCss3 className="text-blue-400" /> },
+                { name: "Apollo Client", icon: <SiApollographql className="text-purple-400" /> },
+                { name: "NextJs", icon: <SiNextdotjs className="text-white" /> }
+            ]
         },
         {
             category: "Back End",
-            skills: ["Node JS", "Express", "Sequelize", "PostgreSQL", "GraphQL", "Apollo Server", "MongoDB", "Redis", "Rest API", "NextJs"]
+            icon: <SiNodedotjs className="text-2xl text-green-400" />,
+            skills: [
+                { name: "Node JS", icon: <SiNodedotjs className="text-green-400" /> },
+                { name: "Express", icon: <SiExpress className="text-white" /> },
+                { name: "Sequelize", icon: <SiSequelize className="text-blue-400" /> },
+                { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" /> },
+                { name: "GraphQL", icon: <SiGraphql className="text-pink-400" /> },
+                { name: "Apollo Server", icon: <SiApollographql className="text-purple-400" /> },
+                { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
+                { name: "Redis", icon: <SiRedis className="text-red-400" /> },
+                { name: "Rest API", icon: <SiPostman className="text-orange-400" /> },
+                { name: "NextJs", icon: <SiNextdotjs className="text-white" /> }
+            ]
         }
     ]
 
@@ -18,23 +64,38 @@ const Skills = () => {
         <section id="skills" className="py-20 bg-gray-900">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center text-white mb-12">Technical Skills</h2>
-                <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <motion.div 
+                    className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2 }}
+                >
                     {skillCategories.map((category, index) => (
-                        <div key={index} className="bg-gray-800/50 p-6 rounded-lg shadow-lg border border-gray-700/50">
-                            <h3 className="text-xl font-semibold text-white mb-4">{category.category}</h3>
-                            <div className="flex flex-wrap gap-2">
+                        <div 
+                            key={index}
+                            className="bg-gray-800/50 p-6 rounded-lg shadow-lg border border-gray-700/50"
+                        >
+                            <div className="flex items-center gap-3 mb-6">
+                                {category.icon}
+                                <h3 className="text-xl font-semibold text-white">{category.category}</h3>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
                                 {category.skills.map((skill, idx) => (
-                                    <span 
-                                        key={idx} 
-                                        className="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-sm font-medium border border-blue-500/20"
+                                    <div
+                                        key={idx}
+                                        className="flex items-center gap-2 px-3 py-2 bg-gray-700/50 rounded-lg border border-gray-600/50 hover:bg-blue-400/10 hover:border-blue-400/30 hover:scale-105 transition-all duration-200"
                                     >
-                                        {skill}
-                                    </span>
+                                        <div className="flex gap-1">
+                                            {skill.icon}
+                                        </div>
+                                        <span className="text-sm text-gray-300">{skill.name}</span>
+                                    </div>
                                 ))}
                             </div>
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )

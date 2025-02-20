@@ -1,3 +1,5 @@
+import { FiLinkedin, FiGithub } from 'react-icons/fi'
+
 const Hero = () => {
     return (
         <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 pt-16">
@@ -23,17 +25,19 @@ const Hero = () => {
                         href="https://www.linkedin.com/in/ferdian-ricky-agustine-080a281a8/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-2 bg-blue-600/80 text-white rounded-full hover:bg-blue-500/80 transition-colors border border-blue-500"
+                        className="flex items-center gap-2 px-6 py-2 bg-blue-600/80 text-white rounded-full hover:bg-blue-500/80 transition-colors border border-blue-500 hover:scale-105 duration-200"
                     >
-                        LinkedIn
+                        <FiLinkedin className="text-xl" />
+                        <span>LinkedIn</span>
                     </a>
                     <a 
                         href="https://github.com/ferdianrickyagustine" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors border border-gray-600"
+                        className="flex items-center gap-2 px-6 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors border border-gray-600 hover:scale-105 duration-200"
                     >
-                        GitHub
+                        <FiGithub className="text-xl" />
+                        <span>GitHub</span>
                     </a>
                 </div>
             </div>
