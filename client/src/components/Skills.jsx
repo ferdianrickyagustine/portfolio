@@ -17,6 +17,7 @@ import {
     SiPostman
 } from 'react-icons/si'
 import { FaCode } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 const Skills = () => {
     const skillCategories = [
@@ -60,18 +61,28 @@ const Skills = () => {
     ]
 
     return (
-        <section id="skills" className="py-20 bg-gray-900">
+        <section id="skills" className="py-16 md:py-20 bg-gray-900">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-white mb-12">Technical Skills</h2>
-                <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 md:mb-12">Technical Skills</h2>
+                <motion.div 
+                    className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2 }}
+                >
                     {skillCategories.map((category, index) => (
-                        <div 
+                        <motion.div 
                             key={index}
-                            className="bg-gray-800/50 p-6 rounded-lg shadow-lg border border-gray-700/50"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            className="bg-gray-800/50 p-4 md:p-6 rounded-lg shadow-lg border border-gray-700/50"
                         >
-                            <div className="flex items-center gap-3 mb-6">
+                            <div className="flex items-center gap-3 mb-4 md:mb-6">
                                 {category.icon}
-                                <h3 className="text-xl font-semibold text-white">{category.category}</h3>
+                                <h3 className="text-lg md:text-xl font-semibold text-white">{category.category}</h3>
                             </div>
                             <div className="grid grid-cols-2 gap-3">
                                 {category.skills.map((skill, idx) => (
@@ -86,9 +97,9 @@ const Skills = () => {
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )
