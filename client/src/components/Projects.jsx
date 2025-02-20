@@ -95,7 +95,6 @@ const Projects = () => {
                     ))}
                 </motion.div>
 
-                {/* Modal */}
                 <AnimatePresence>
                     {selectedProject && (
                         <motion.div

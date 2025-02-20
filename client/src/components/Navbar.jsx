@@ -7,10 +7,9 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-800/50">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
-                    <a href="#" className="text-xl font-bold text-white">Portfolio</a>
-                    
-                    {/* Desktop Menu */}
-                    <div className="hidden md:flex space-x-8">
+                    <a href="#" className="text-xl font-bold text-white ml-10">Profile</a>
+
+                    <div className="hidden md:flex space-x-8 mr-10">
                         <a href="#about" className="text-gray-400 hover:text-blue-400 transition-colors">About</a>
                         <a href="#experience" className="text-gray-400 hover:text-blue-400 transition-colors">Experience</a>
                         <a href="#education" className="text-gray-400 hover:text-blue-400 transition-colors">Education</a>
@@ -19,8 +18,7 @@ const Navbar = () => {
                         <a href="#certifications" className="text-gray-400 hover:text-blue-400 transition-colors">Certifications</a>
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <button 
+                    <button
                         className="md:hidden text-white p-2"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
@@ -34,7 +32,6 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 {isMenuOpen && (
                     <div className="md:hidden py-4 border-t border-gray-800/50">
                         <div className="flex flex-col space-y-4">

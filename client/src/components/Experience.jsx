@@ -30,7 +30,6 @@ const Experience = () => {
             <div className="container mx-auto px-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 md:mb-12">Work Experience</h2>
                 <div className="max-w-4xl mx-auto relative">
-                    {/* Timeline line - hidden on mobile */}
                     <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-700" />
                     
                     {experiences.map((exp, index) => (
@@ -42,7 +41,6 @@ const Experience = () => {
                             transition={{ duration: 0.5, delay: index * 0.2 }}
                             className="relative mb-8 md:mb-12 last:mb-0"
                         >
-                            {/* Timeline dot - hidden on mobile */}
                             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                 <motion.div 
                                     className="w-6 h-6 bg-blue-500 rounded-full border-4 border-gray-900"
@@ -50,7 +48,6 @@ const Experience = () => {
                                     transition={{ type: "spring", stiffness: 300 }}
                                 />
                             </div>
-
                             <div className={`relative md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'}`}>
                                 <div className="bg-gray-800/50 p-4 md:p-6 rounded-lg shadow-lg border border-gray-700/50 hover:border-blue-500/30 transition-colors duration-300">
                                     <div className="mb-4">
