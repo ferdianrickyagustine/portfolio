@@ -17,7 +17,7 @@ const Projects = () => {
         {
             name: "Lazada Clone",
             image: "https://ik.imagekit.io/matguchi18/Image%20Portfolio/LazadaClone.png",
-            description: "A simplified e-commerce website that replicates Lazada's wishlist feature, allowing users to browse and save products for future purchases.",
+            description: "A simplified e-commerce website that replicates Lazada’s wishlist feature, allowing users to browse and save products for future purchases.",
             techStack: ["TypeScript", "Next js", "MongoDB", "Tailwind CSS"],
             github: "https://github.com/ferdianrickyagustine/gc-02-p3",
             live: "https://gc-02-p3.vercel.app/"
@@ -40,7 +40,7 @@ const Projects = () => {
         {
             name: "Adopt Hero",
             image: "https://ik.imagekit.io/matguchi18/Image%20Portfolio/AdoptHero.png",
-            description: "A web-based application to adopt pet and using Gemini AI as a chatbot to recommend pets based on user's input.",
+            description: "A web-based application to adopt pet and using Gemini AI to recommend pet based on user's input",
             techStack: ["ReactJS", "Express.js", "Sequelize", "PostgreSQL", "Jest", "AWS", "Gemini AI", "Vite + Tailwind"],
             github: "https://github.com/ferdianrickyagustine/iproject",
             live: "https://iproject-xi.vercel.app/"
@@ -69,7 +69,7 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <motion.div 
                             key={index}
-                            className="group bg-gray-800/50 rounded-xl border border-gray-700/50 transition-all duration-300 relative overflow-hidden cursor-pointer"
+                            className="group bg-gray-800/50 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 border border-gray-700/50 transition-all duration-300 relative overflow-hidden cursor-pointer"
                             onClick={() => setSelectedProject(project)}
                             whileHover={{ scale: 1.02 }}
                         >
@@ -79,16 +79,14 @@ const Projects = () => {
                                     alt={project.name}
                                     className="w-full h-full object-cover rounded-t-xl"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent" />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <button className="px-6 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all duration-300 text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                                        View Details
-                                    </button>
-                                </div>
-                                <div className="absolute bottom-0 inset-x-0 p-4 text-center">
-                                    <h3 className="text-xl font-semibold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80" />
+                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <h3 className="text-xl font-semibold text-white mb-2">
                                         {project.name}
                                     </h3>
+                                    <button className="px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-500/80 transition-colors text-sm">
+                                        View Details
+                                    </button>
                                 </div>
                             </div>
                         </motion.div>
@@ -143,34 +141,36 @@ const Projects = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex justify-between items-end">
-                                    {selectedProject.github && (
-                                        <motion.a
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            href={selectedProject.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors border border-gray-600"
-                                        >
-                                            <FiGithub className="text-lg" />
-                                            <span>GitHub</span>
-                                        </motion.a>
-                                    )}
-                                    {selectedProject.live && (
-                                        <motion.a
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            href={selectedProject.live}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-500/80 transition-colors border border-blue-500"
-                                        >
-                                            <FiExternalLink className="text-lg" />
-                                            <span>Live Demo</span>
-                                        </motion.a>
-                                    )}
-                                </div>
+                                {(selectedProject.github || selectedProject.live) && (
+                                    <div className="flex gap-4">
+                                        {selectedProject.github && (
+                                            <motion.a
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                href={selectedProject.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors border border-gray-600"
+                                            >
+                                                <FiGithub className="text-lg" />
+                                                <span>GitHub</span>
+                                            </motion.a>
+                                        )}
+                                        {selectedProject.live && (
+                                            <motion.a
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                href={selectedProject.live}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-500/80 transition-colors border border-blue-500"
+                                            >
+                                                <FiExternalLink className="text-lg" />
+                                                <span>Live Demo</span>
+                                            </motion.a>
+                                        )}
+                                    </div>
+                                )}
                             </motion.div>
                         </motion.div>
                     )}
