@@ -56,11 +56,11 @@ const Projects = () => {
     ]
 
     return (
-        <section id="projects" className="py-20 bg-gray-900">
+        <section id="projects" className="py-16 md:py-20 bg-gray-900">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-white mb-12">Projects</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 md:mb-12">Projects</h2>
                 <motion.div 
-                    className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8"
+                    className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -81,12 +81,12 @@ const Projects = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent" />
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <button className="px-6 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all duration-300 text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    <button className="px-4 md:px-6 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all duration-300 text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                                         View Details
                                     </button>
                                 </div>
                                 <div className="absolute bottom-0 inset-x-0 p-4 text-center">
-                                    <h3 className="text-xl font-semibold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    <h3 className="text-lg md:text-xl font-semibold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                                         {project.name}
                                     </h3>
                                 </div>
@@ -109,33 +109,33 @@ const Projects = () => {
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 exit={{ scale: 0.9, opacity: 0 }}
-                                className="bg-gray-800 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+                                className="bg-gray-800 rounded-xl p-4 md:p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
                                 onClick={e => e.stopPropagation()}
                             >
                                 <button 
-                                    className="absolute top-4 right-4 text-gray-400 hover:text-white"
+                                    className="absolute top-2 right-2 md:top-4 md:right-4 text-gray-400 hover:text-white"
                                     onClick={() => setSelectedProject(null)}
                                 >
-                                    <FiX className="text-2xl" />
+                                    <FiX className="text-xl md:text-2xl" />
                                 </button>
 
                                 <img 
                                     src={selectedProject.image} 
                                     alt={selectedProject.name}
-                                    className="w-full h-64 object-cover rounded-lg mb-6"
+                                    className="w-full h-48 md:h-64 object-cover rounded-lg mb-4 md:mb-6"
                                 />
 
-                                <h3 className="text-2xl font-bold text-white mb-4">{selectedProject.name}</h3>
+                                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">{selectedProject.name}</h3>
                                 
-                                <p className="text-gray-300 mb-6">{selectedProject.description}</p>
+                                <p className="text-sm md:text-base text-gray-300 mb-4 md:mb-6">{selectedProject.description}</p>
                                 
-                                <div className="mb-6">
-                                    <h4 className="text-lg font-semibold text-white mb-3">Tech Stack</h4>
+                                <div className="mb-4 md:mb-6">
+                                    <h4 className="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">Tech Stack</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {selectedProject.techStack.map((tech, idx) => (
                                             <span 
                                                 key={idx}
-                                                className="px-3 py-1 bg-gray-700/50 text-blue-300 rounded-full text-sm font-medium border border-blue-500/20"
+                                                className="px-2 md:px-3 py-1 bg-gray-700/50 text-blue-300 rounded-full text-xs md:text-sm font-medium border border-blue-500/20"
                                             >
                                                 {tech}
                                             </span>
@@ -151,7 +151,7 @@ const Projects = () => {
                                             href={selectedProject.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors border border-gray-600"
+                                            className="flex items-center gap-2 px-3 md:px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors border border-gray-600 text-sm md:text-base"
                                         >
                                             <FiGithub className="text-lg" />
                                             <span>GitHub</span>
@@ -164,7 +164,7 @@ const Projects = () => {
                                             href={selectedProject.live}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-500/80 transition-colors border border-blue-500"
+                                            className="flex items-center gap-2 px-3 md:px-4 py-2 bg-blue-600/80 text-white rounded-lg hover:bg-blue-500/80 transition-colors border border-blue-500 text-sm md:text-base"
                                         >
                                             <FiExternalLink className="text-lg" />
                                             <span>Live Demo</span>

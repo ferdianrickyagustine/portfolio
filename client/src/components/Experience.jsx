@@ -26,12 +26,12 @@ const Experience = () => {
     ]
 
     return (
-        <section id="experience" className="py-20 bg-gray-900">
+        <section id="experience" className="py-16 md:py-20 bg-gray-900">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-white mb-12">Work Experience</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-8 md:mb-12">Work Experience</h2>
                 <div className="max-w-4xl mx-auto relative">
-                    {/* Timeline line */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-700" />
+                    {/* Timeline line - hidden on mobile */}
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-700" />
                     
                     {experiences.map((exp, index) => (
                         <motion.div 
@@ -40,10 +40,10 @@ const Experience = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.2 }}
-                            className="relative mb-12 last:mb-0"
+                            className="relative mb-8 md:mb-12 last:mb-0"
                         >
-                            {/* Timeline dot */}
-                            <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            {/* Timeline dot - hidden on mobile */}
+                            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                 <motion.div 
                                     className="w-6 h-6 bg-blue-500 rounded-full border-4 border-gray-900"
                                     whileHover={{ scale: 1.2 }}
@@ -51,14 +51,13 @@ const Experience = () => {
                                 />
                             </div>
 
-                            {/* Content card - alternating sides */}
-                            <div className={`relative ${index % 2 === 0 ? 'ml-auto pl-8' : 'mr-auto pr-8'} w-[calc(50%-2rem)]`}>
-                                <div className="bg-gray-800/50 p-6 rounded-lg shadow-lg border border-gray-700/50 hover:border-blue-500/30 transition-colors duration-300">
+                            <div className={`relative md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8'}`}>
+                                <div className="bg-gray-800/50 p-4 md:p-6 rounded-lg shadow-lg border border-gray-700/50 hover:border-blue-500/30 transition-colors duration-300">
                                     <div className="mb-4">
-                                        <h3 className="text-xl font-semibold text-white">{exp.position}</h3>
+                                        <h3 className="text-lg md:text-xl font-semibold text-white">{exp.position}</h3>
                                         <p className="text-blue-400">{exp.company}</p>
-                                        <p className="text-gray-400 text-sm">{exp.location}</p>
-                                        <p className="text-gray-500 text-sm mt-1">{exp.period}</p>
+                                        <p className="text-sm text-gray-400">{exp.location}</p>
+                                        <p className="text-sm text-gray-500 mt-1">{exp.period}</p>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-300 space-y-2">
                                         {exp.responsibilities.map((resp, idx) => (
