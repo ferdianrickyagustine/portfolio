@@ -11,6 +11,7 @@ import Projects from './components/Projects'
 import Certifications from './components/Certifications'
 import LoadingScreen from './components/LoadingScreen'
 import Footer from './components/Footer'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
@@ -47,7 +48,6 @@ function App() {
                             <Footer />
                         </motion.div>
 
-                        {/* WhatsApp Button */}
                         <a
                             href="https://wa.me/+6283897229856"
                             target="_blank"
@@ -60,6 +60,7 @@ function App() {
                     </>
                 )}
             </AnimatePresence>
+            <Analytics />
         </>
     )
 }
